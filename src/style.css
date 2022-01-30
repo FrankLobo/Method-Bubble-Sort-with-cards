@@ -1,1 +1,126 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 153, 0);
+  }
+  
+  .tittle-card {
+    margin: 0;
+    padding-top: 10px;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(255, 250, 215);
+    background: linear-gradient(180deg, rgb(24, 61, 24, 0.7) 0%, rgba(0,114,0,0.1) 80%, rgba(0,114,0,0) 100%);    
+    /* background-color: rgba(14, 41, 14, 0.534); */
+    box-shadow: 0px 5px 8px rgba(12, 44, 5, 0.4);  
+    text-align: center;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+    height: 600px;
+    width: 400px;
+    font-size: 10rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border-top: 1px solid rgb(216, 216, 216);
+    box-shadow: 1px 10px 10px rgb(18, 65, 7);
+  }
+  
+  .diams::before {
+    color: red;
+    content: "\2666";
+    width: 40%;
+    height: 100%;
+  }
+  .diams::after {
+    color: red;
+    content: "\2666";
+    width: 160%;
+    height: 100%;
+  }
+  .hearts::before {
+    color: red;
+    content: "\2665";
+    width: 40%;
+    height: 100%;
+  }
+  .hearts::after {
+    color: red;
+    content: "\2665";
+    width: 160%;
+    height: 100%;
+    transform: rotate(180deg);
+  }
+  .spades::before {
+    content: "\2660";
+    width: 40%;
+    height: 100%;
+  }
+  .spades::after {
+    content: "\2660";
+    width: 160%;
+    height: 100%;
+    transform: rotate(180deg);
+  }
+  .clubs::before {
+    content: "\2663";
+    width: 40%;
+    height: 100%;
+  }
+  .clubs::after {
+    content: "\2663";
+    width: 160%;
+    height: 100%;
+    transform: rotate(180deg);
+  }
+  
+  .button-card {
+    position: absolute;
+    bottom: 100px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    float: left;
+    color: rgb(114, 206, 94);
+    background-color: rgb(46, 80, 42);
+    border-top: 1px solid rgba(92, 153, 86, 0.6);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    /* border: 1px solid rgb(97, 167, 91); */
+    box-shadow: 1px 10px 10px rgb(18, 65, 7);
+  }
+  .button-card:hover {
+    position: absolute;
+     bottom: 100px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    float: left;
+    color: rgb(41, 70, 38);
+    background-color: rgb(214, 255, 223);
+    border: 1px solid rgb(171, 255, 171);
+    box-shadow: 1px 5px 10px rgb(98, 206, 74);
+  }
+  
+  .button-card:active {
+    position: absolute;
+     bottom: 100px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    float: left;
+    color: rgb(252, 252, 252);
+    background-color: rgb(0, 218, 47);
+    border: 1px solid rgb(14, 167, 14);
+    box-shadow: 1px 5px 10px rgb(47, 255, 0);
+  }
+ 
