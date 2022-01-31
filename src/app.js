@@ -1,72 +1,84 @@
-window.onload = () => {
-  let generateRandomSuitCard = () => {
-    let cardSuits = ["diams", "hearts", "clubs", "spades"];
-    let indexCardSuits = Math.floor(Math.random() * cardSuits.length);
-    return cardSuits[indexCardSuits];
-  };
-  let generateRandomNumberCard = () => {
-    let cardNumbers = [
-      "A",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "J",
-      "Q",
-      "K"
-    ];
-    let indexCardNumbers = Math.floor(Math.random() * cardNumbers.length);
-    return cardNumbers[indexCardNumbers];
-  };
-  document.querySelector(
-    ".card"
-  ).className = `card ${generateRandomSuitCard()}`;
-  document.querySelector(".card").innerHTML = generateRandomNumberCard();
-};
+// window.onload = () => {
 
-// function theInputRandomNumbers () {
-//   let newArray = [];
+// mi funcion para generar numeros aleatorios en el input y cartas aleatorias
+// function randomGeneration() {
+//   let suits = ["diams", "hearts", "clubs", "spades"];
+//   let ranks = [
+//     "A",
+//     "2",
+//     "3",
+//     "4",
+//     "5",
+//     "6",
+//     "7",
+//     "8",
+//     "9",
+//     "10",
+//     "J",
+//     "Q",
+//     "K"
+//   ];
 
+//   let cards = [];
+
+//   for (let suitCounter = 0; suitCounter < 4; suitCounter++) {
+//     // suits[suitCounter] = Math.floor(Math.random() * suits.length);
+//     for (let rankCounter = 0; rankCounter < 13; rankCounter++) {
+//       ranks[rankCounter] = Math.floor(Math.random() * ranks.length);
+//       cards.push(ranks[rankCounter] + suits[suitCounter]);
+//     }
+//   }
 // }
-
-let drawButton = document.querySelector(".draw-button");
-drawButton.addEventListener("click", e => {
-  const input = e.target;
-  // window.onload();
-  let onlyNumbers = /^[0-9]+$/;
-  // let repeatCards = window.onload();
-  // let inputNumbers = document.getElementById("numberusercards");
-  if (input.value === "" || onlyNumbers.test(input.value)) {
-    window.onload();
+// document.querySelector(".card").classList.add(randomGeneration());
+// document.querySelector(".card").innerHTML = generateRandomNumberCard();
+let number = 0;
+// mi boton Draw que escuchara el evento de mi funcion randomGeneration
+let formValue = document.getElementById("formValue");
+function myFunction(e) {
+  e.preventDefault();
+  number = e.target[0].valueAsNumber;
+  console.log(number);
+  for (let i = 0; i < number; i++) {
+    let container = document.querySelector(".container");
+    // let div = document.createElement("div");
+    // div.classList.add("card");
+    // container.appendChild(div);
+    container.innerHTML += `<div class="card" id="showcards"></div>`;
+    console.log("for", i);
   }
-  // let sortButton = document.querySelector(".sort-button");
-  //   sortButton.addEventListener('click', () => {
-  //     //codigo algoritmo de ordenamiento Bubble//
-  // // const bubbleSort = (arr) => {
-  // //   let wall = arr.length - 1; //we start the wall at the end of the array
-  // //   while (wall > 0){
-  // //       let index = 0;
-  // //       while (index < wall) {
-  // //         //compare the adjacent positions, if the right one is bigger, we have to swap
-  // //         if (arr[index] > arr[index + 1]) {
-  // //           let aux = arr[index];
-  // //           arr[index] = arr[index + 1];
-  // //           arr[index + 1] = aux;
-  // //         }
-  // //         index++;
-  // //       }
-  // //       wall--; //decrease the wall for optimization
-  // //   }
-  // // return arr;
-  // // };
-  //   })
-});
+}
+formValue.removeEventListener("submit", myFunction);
+formValue.addEventListener("submit", myFunction);
 
+//   if (document.querySelector("#numberusercards").value === "") {
+//     document.querySelector(".card").style.display = "none";
+//   }
+//   if (document.querySelector("#numberusercards").value !== "") {
+//     document.querySelector(".card").style.display = "flex";
+//   }
+// });
+// let sortButton = document.querySelector(".sort-button");
+//   sortButton.addEventListener('click', () => {
+
+//     //codigo algoritmo de ordenamiento Bubble//
+// // const bubbleSort = (arr) => {
+// //   let wall = arr.length - 1; //we start the wall at the end of the array
+// //   while (wall > 0){
+// //       let index = 0;
+// //       while (index < wall) {
+// //         //compare the adjacent positions, if the right one is bigger, we have to swap
+// //         if (arr[index] > arr[index + 1]) {
+// //           let aux = arr[index];
+// //           arr[index] = arr[index + 1];
+// //           arr[index + 1] = aux;
+// //         }
+// //         index++;
+// //       }
+// //       wall--; //decrease the wall for optimization
+// //   }
+// // return arr;
+// // };
+//   })
 // codigo para crear una matriz//
 
 /*function matrixBuilder(builder) {

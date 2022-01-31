@@ -3,20 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Card Dealer.js</title>
+    <title>Bubble Sort</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <h1 class="text-original">Original:</h1>
-    <input
-      type="text"
-      id="numberusercards"
-      name="numberusercards"
-      maxlength="2"
-    />
-    <button class="draw-button">Draw</button>
-    <button class="sort-button">Sort</button>
-    <div class="card"></div>
+    <form id="formValue">
+      <input type="number" id="numberusercards" name="numberusercards" />
+      <button type="submit" class="draw-button">Draw</button>
+    </form>
+    <div class="container"></div>
+    <!-- <div class="card" id="showcards"></div> -->
     <h1 class="select-sort-log">Bubble Sort Log:</h1>
     <script src="/src/app.js"></script>
   </body>
