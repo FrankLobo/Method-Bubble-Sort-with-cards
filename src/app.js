@@ -1,84 +1,48 @@
 // window.onload = () => {
+let suits = ["diams", "hearts", "clubs", "spades"];
+let ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+let objOfCards = [];
 
-// mi funcion para generar numeros aleatorios en el input y cartas aleatorias
-// function randomGeneration() {
-//   let suits = ["diams", "hearts", "clubs", "spades"];
-//   let ranks = [
-//     "A",
-//     "2",
-//     "3",
-//     "4",
-//     "5",
-//     "6",
-//     "7",
-//     "8",
-//     "9",
-//     "10",
-//     "J",
-//     "Q",
-//     "K"
-//   ];
+let buttonDraw = document.querySelector(".draw-button");
+buttonDraw.addEventListener("click", myFunctionCards);
 
-//   let cards = [];
-
-//   for (let suitCounter = 0; suitCounter < 4; suitCounter++) {
-//     // suits[suitCounter] = Math.floor(Math.random() * suits.length);
-//     for (let rankCounter = 0; rankCounter < 13; rankCounter++) {
-//       ranks[rankCounter] = Math.floor(Math.random() * ranks.length);
-//       cards.push(ranks[rankCounter] + suits[suitCounter]);
-//     }
-//   }
-// }
-// document.querySelector(".card").classList.add(randomGeneration());
-// document.querySelector(".card").innerHTML = generateRandomNumberCard();
-let number = 0;
-// mi boton Draw que escuchara el evento de mi funcion randomGeneration
-let formValue = document.getElementById("formValue");
-function myFunction(e) {
-  e.preventDefault();
-  number = e.target[0].valueAsNumber;
-  console.log(number);
-  for (let i = 0; i < number; i++) {
-    let container = document.querySelector(".container");
-    // let div = document.createElement("div");
-    // div.classList.add("card");
-    // container.appendChild(div);
-    container.innerHTML += `<div class="card" id="showcards"></div>`;
-    console.log("for", i);
+function myFunctionCards() {
+  let objOfCards = [];
+  let inputValueCards = parseInt(
+    document.getElementById("numberusercards").value
+  ); //estoy llamando al valor del input que coloca el usuario
+  if (inputValueCards === 0) {
+    alert("Coloca un numero mayor a 0");
+  } else if (inputValueCards !== 0) {
+    for (let i = 0; i < inputValueCards; i++) {
+      let objElementsCard = {
+        ranks: ranks[Math.floor(Math.random() * ranks.length)],
+        suits: suits[Math.floor(Math.random() * suits.length)]
+      };
+      objOfCards.push(objElementsCard);
+    }
+  }
+  for (let element of objOfCards) {
+    console.log(element);
+    let myCard = document.querySelector(".container");
+    let myDiv = document.createElement("div");
+    let contentDiv = document.createTextNode(`${element.ranks}`);
+    myDiv.appendChild(contentDiv);
+    myDiv.className = `card ${element.suits}`;
+    myCard.appendChild(myDiv);
   }
 }
-formValue.removeEventListener("submit", myFunction);
-formValue.addEventListener("submit", myFunction);
 
-//   if (document.querySelector("#numberusercards").value === "") {
-//     document.querySelector(".card").style.display = "none";
-//   }
-//   if (document.querySelector("#numberusercards").value !== "") {
-//     document.querySelector(".card").style.display = "flex";
-//   }
+// let inputValueCards = document.getElementById("numberusercards").value;
+// if (inputValueCards === "") {
+//   document.querySelector(".card").style.display = "none";
+// } else if (inputValueCards !== "") {
+//   document.querySelector(".card").style.display = "flex";
+// }
+
 // });
 // let sortButton = document.querySelector(".sort-button");
-//   sortButton.addEventListener('click', () => {
-
-//     //codigo algoritmo de ordenamiento Bubble//
-// // const bubbleSort = (arr) => {
-// //   let wall = arr.length - 1; //we start the wall at the end of the array
-// //   while (wall > 0){
-// //       let index = 0;
-// //       while (index < wall) {
-// //         //compare the adjacent positions, if the right one is bigger, we have to swap
-// //         if (arr[index] > arr[index + 1]) {
-// //           let aux = arr[index];
-// //           arr[index] = arr[index + 1];
-// //           arr[index + 1] = aux;
-// //         }
-// //         index++;
-// //       }
-// //       wall--; //decrease the wall for optimization
-// //   }
-// // return arr;
-// // };
-//   })
+// sortButton.addEventListener("click", myFunctionCards);
 // codigo para crear una matriz//
 
 /*function matrixBuilder(builder) {
@@ -95,5 +59,5 @@ formValue.addEventListener("submit", myFunction);
   return newMatrix;
 }
 
-console.log(matrixBuilder(5));
+
 */
