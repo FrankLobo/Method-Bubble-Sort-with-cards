@@ -1,28 +1,4 @@
 window.onload = () => {
-  // let generateRandomSuitCard = () => {
-  //   let cardSuits = ["diams", "hearts", "clubs", "spades"];
-  //   let indexCardSuits = Math.floor(Math.random() * cardSuits.length);
-  //   return cardSuits[indexCardSuits];
-  // };
-  // let generateRandomNumberCard = () => {
-  //   let cardNumbers = [
-  //     "A",
-  //     "2",
-  //     "3",
-  //     "4",
-  //     "5",
-  //     "6",
-  //     "7",
-  //     "8",
-  //     "9",
-  //     "10",
-  //     "J",
-  //     "Q",
-  //     "K"
-  //   ];
-  //   let indexCardNumbers = Math.floor(Math.random() * cardNumbers.length);
-  //   return cardNumbers[indexCardNumbers];
-  // };
   let suits = ["diams", "hearts", "clubs", "spades"];
   let ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   let objOfCards = [];
@@ -97,8 +73,6 @@ window.onload = () => {
         if (objOfCards[index].ranks === "K") {
           objOfCards[index].ranks = 13;
         }
-
-        // console.log(objOfCards[index].ranks);
         //compare the adjacent positions, if the right one is bigger, we have to swap
         if (objOfCards[index].ranks > objOfCards[index + 1].ranks) {
           let aux = objOfCards[index].ranks;
@@ -109,7 +83,6 @@ window.onload = () => {
       }
       wall--; //decrease the wall for optimization
     }
-
     for (let element of objOfCards) {
       if (element.ranks === 1) {
         element.ranks = "A";
@@ -131,12 +104,7 @@ window.onload = () => {
     }
     return objOfCards;
   };
-
   //Boton de Ordenamiento
   let sortButton = document.querySelector(".sort-button");
   sortButton.addEventListener("click", bubbleSort);
 };
-
-// let numbers = [1, 2, 3];
-// let numbersCopy = [numbers];
-// console.log(numbersCopy);
