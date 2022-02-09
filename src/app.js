@@ -53,9 +53,9 @@ window.onload = () => {
 
   //Algoritmo de ordenamiento de Burbuja
   const bubbleSort = () => {
-    let myUl = document.querySelector(".lista-containers-cards-sort");
-    if (myUl.childNodes.length !== 0) {
-      myUl.innerHTML = "";
+    let myContainerDiv = document.querySelector(".contenedor-listas-sort");
+    if (myContainerDiv.childNodes.length !== 0) {
+      myContainerDiv.innerHTML = "";
     }
     let wall = objOfCards.length - 1; //we start the wall at the end of the array
     while (wall > 0) {
@@ -82,25 +82,31 @@ window.onload = () => {
         index++;
       }
       wall--; //decrease the wall for optimization
-    }
-    for (let element of objOfCards) {
-      if (element.ranks === 1) {
-        element.ranks = "A";
+      let myUl = document.createElement("ul");
+      let liNumber = document.createElement("li");
+      liNumber.innerHTML = `${index - 1}:`;
+      myUl.appendChild(liNumber);
+      myUl.className = "lista-containers-cards-sort";
+      myContainerDiv.appendChild(myUl);
+      for (let element of objOfCards) {
+        if (element.ranks === 1) {
+          element.ranks = "A";
+        }
+        if (element.ranks === 11) {
+          element.ranks = "J";
+        }
+        if (element.ranks === 12) {
+          element.ranks = "Q";
+        }
+        if (element.ranks === 13) {
+          element.ranks = "K";
+        }
+        let myLi = document.createElement("li");
+        let contentLi = document.createTextNode(`${element.ranks}`);
+        myLi.className = `card ${element.suits}`;
+        myLi.appendChild(contentLi);
+        myUl.appendChild(myLi);
       }
-      if (element.ranks === 11) {
-        element.ranks = "J";
-      }
-      if (element.ranks === 12) {
-        element.ranks = "Q";
-      }
-      if (element.ranks === 13) {
-        element.ranks = "K";
-      }
-      let myLi = document.createElement("li");
-      let contentLi = document.createTextNode(`${element.ranks}`);
-      myLi.className = `card ${element.suits}`;
-      myLi.appendChild(contentLi);
-      myUl.appendChild(myLi);
     }
     return objOfCards;
   };
